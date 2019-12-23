@@ -20,7 +20,6 @@ double screenWidth(BuildContext context,
 
 double screenHeightExcludingToolbar(BuildContext context,
     {double dividedBy = 1}) {
-      print(kToolbarHeight+kBottomNavigationBarHeight);
   return screenHeight(context, dividedBy: dividedBy, reducedBy: (kToolbarHeight+kBottomNavigationBarHeight+15));
 }
 

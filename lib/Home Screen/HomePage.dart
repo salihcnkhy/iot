@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iot102/FireBaseConn.dart';
 import 'package:iot102/Login%20Screen/loginPageController.dart';
-import 'package:iot102/splashScreen.dart';
-import '../User.dart';
 import './mainPage.dart';
 import './profilePage.dart';
 
@@ -48,41 +46,22 @@ class _HomePageState extends State<HomePage> {
     var appBar = AppBar(
       title: Text(_pages.entries.elementAt(_pageIndex).value),
       actions: <Widget>[
-
         IconButton(
-
           onPressed: () async {
             FireBaseConn().logOut();
             Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
-                builder: (BuildContext context) {
-                  return new LoginPage();
-                },
-              ), (_) => false);
+              builder: (BuildContext context) {
+                return new LoginPage();
+              },
+            ), (_) => false);
           },
           icon: Icon(Icons.lock_open),
-          
         )
-
       ],
     );
-
-    return FutureBuilder(
-      future: FireBaseConn().getDocumentsFrom(collectionName: "Users",documentName: "user1"),
-      builder: (context, res) {
-        if (res.data != null) {
-           user = new User(
-              containerCapacity: res.data["containerCapacity"],
-              currentContainerCapacity: res.data["currentContainerCapacity"],
-              currentStorageCapacity: res.data["currentStorageCapacity"],
-              storageCapacity: res.data["storageCapacity"],
-              lastSevenDays: List.from(res.data["days"]));
-          return Scaffold(
-              appBar: appBar,
-              bottomNavigationBar: bottomNavBar(),
-              body: _pages.entries.elementAt(_pageIndex).key);
-        }
-        else return SplashScreen();
-      },
-    );
+    return Scaffold(
+        appBar: appBar,
+        bottomNavigationBar: bottomNavBar(),
+        body: _pages.entries.elementAt(_pageIndex).key);
   }
 }

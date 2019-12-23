@@ -19,9 +19,9 @@ class MainPage extends StatelessWidget {
       ),
       height: ScreenSize().screenHeightExcludingToolbar(context, dividedBy: 3),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
-            margin: EdgeInsets.only(left: 20),
             height: ScreenSize()
                     .screenHeightExcludingToolbar(context, dividedBy: 3) /
                 1.25,
@@ -74,12 +74,12 @@ class MainPage extends StatelessWidget {
       ),
       height: ScreenSize().screenHeightExcludingToolbar(context, dividedBy: 3),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                margin: EdgeInsets.only(left: 20),
                 height: ScreenSize()
                         .screenHeightExcludingToolbar(context, dividedBy: 3) /
                     1.25,
@@ -153,9 +153,8 @@ class MainPage extends StatelessWidget {
     print(user.lastSevenDays);
     int count = 6;
     for (var a in user.lastSevenDays.reversed) {
-      
       data.add(new EatPerDay(count--, a));
-      if(count == -1){
+      if (count == -1) {
         break;
       }
     }

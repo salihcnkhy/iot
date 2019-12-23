@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iot102/FireBaseConn.dart';
+import 'package:iot102/Home%20Screen/HomePage.dart';
 import 'package:iot102/Register%20Screen/deviceFiled.dart';
-import '../Home Screen/homeScreenControl.dart';
 import 'registerButton.dart';
 import './emailFields.dart';
 import './passwordFields.dart';
